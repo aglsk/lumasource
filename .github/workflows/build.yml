@@ -27,7 +27,7 @@ jobs:
         pyinstaller --onefile --windowed --icon=luma.ico --version-file=version.txt luma.py
 
     - name: Fazer upload do .exe como artefato
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: luma-exe
         path: dist/luma.exe
