@@ -1,11 +1,11 @@
-name: Build EXE
+name: Build Windows EXE
 
 on:
   push:
     branches: [ main ]
 
 jobs:
-  build-windows:
+  build:
     runs-on: windows-latest
 
     steps:
@@ -19,15 +19,15 @@ jobs:
 
     - name: Instalar dependências
       run: |
+        pip install -r requirements.txt
         pip install pyinstaller
-        pip install -r requirements.txt || echo "Sem requirements.txt"
 
     - name: Compilar EXE com PyInstaller
       run: |
-        pyinstaller --onefile --noconsole --icon=luma.ico new.py
+        pyinstaller --onefile --windowed --icon=luma.ico --version-file=version.txt luma.py
 
-    - name: Upload EXE
+    - name: Fazer upload do .exe como artefato
       uses: actions/upload-artifact@v3
       with:
         name: luma-exe
-        path: dist/new.exe
+        path: dist/luma.exe
