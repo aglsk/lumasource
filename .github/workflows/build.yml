@@ -29,5 +29,5 @@ jobs:
     - name: Fazer upload do .exe como artefato
       uses: actions/upload-artifact@v4
       with:
-        name: luma-exe
+        name: luma
         path: dist/luma.exe
