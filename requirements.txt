@@ -1,0 +1,7 @@
+pyqt5
+pygame
+gtts
+yt_dlp
+speechrecognition
+beautifulsoup4
+requests
